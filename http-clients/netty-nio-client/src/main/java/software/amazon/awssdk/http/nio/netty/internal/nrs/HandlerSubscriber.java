@@ -23,6 +23,7 @@ import io.netty.util.concurrent.EventExecutor;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+import software.amazon.awssdk.http.nio.netty.internal.utils.OrderedWriteChannelHandlerContext;
 
 /**
  * Subscriber that publishes received messages to the handler pipeline.
@@ -110,6 +111,7 @@ public class HandlerSubscriber<T> extends ChannelDuplexHandler implements Subscr
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         verifyRegisteredWithRightExecutor(ctx);
+        ctx = OrderedWriteChannelHandlerContext.wrap(ctx);
 
         switch (state) {
             case NO_SUBSCRIPTION_OR_CONTEXT:
