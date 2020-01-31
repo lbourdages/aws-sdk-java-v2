@@ -18,7 +18,7 @@ package software.amazon.awssdk.http.nio.netty.internal;
 import static software.amazon.awssdk.http.nio.netty.internal.ChannelAttributeKey.IN_USE;
 import static software.amazon.awssdk.http.nio.netty.internal.utils.ChannelUtils.removeIfExists;
 
-import com.typesafe.netty.http.HttpStreamsClientHandler;
+import software.amazon.awssdk.http.nio.netty.internal.nrs.HttpStreamsClientHandler;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.pool.ChannelPool;
